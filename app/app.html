@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="./app.css">
+        <script type="text/javascript" src="https://unpkg.com/jquery@3.5.1/dist/jquery.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/web3@1.2.7/dist/web3.min.js"></script>
+        <script type="text/javascript" src="./app.js"></script>
+        <title>Proof of existence</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1>Proof of existence</h1>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <h5 class="card-header">Submit document</h5>
+                        <div class="card-body">
+                            <p class="card-text">Select a document to store its hash in the smart contract. <a href="https://github.com/MaxXor/proof-of-existence#what-is-proof-of-existence">Find out more.</a></p>
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="submit-file-input">
+                                    <label class="custom-file-label" for="submit-file-input">Choose document</label>
+                                </div>
+                            </div>
+                            <p>Document hash:&nbsp;<span id="submit-hash"></span></p>
+                            <div class="action-bar action-bar--single">
+                                <div class="action-item">
+                                    <button type="button" class="btn btn-primary" id="submit-button" disabled>Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <h5 class="card-header">Search document</h5>
+                        <div class="card-body">
+                            <p class="card-text">Select a document to retrieve its timestamp if it was submitted. <a href="https://github.com/MaxXor/proof-of-existence#what-is-proof-of-existence">Find out more.</a></p>
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="search-file-input">
+                                    <label class="custom-file-label" for="search-file-input">Choose document</label>
+                                </div>
+                            </div>
+                            <p>Document hash:&nbsp;<span id="search-hash"></span></p>
+                            <div class="action-bar action-bar--single">
+                                <div class="action-item">
+                                    <button type="button" class="btn btn-primary" id="search-button" disabled>Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center" id="loader-row">
+                <div class="spinner-border hidden" role="status" id ="loader">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div class="results">
+                <div class="alert alert-success hidden" role="alert" id="success-alert">
+                Successfully retrieved document. Date of submission:&nbsp;<span id="blocknumber"></span>
+                </div>
+                <div class="alert alert-success hidden" role="alert" id="submit-alert">
+                Successfully submitted document.
+                </div>
+                <div class="alert alert-warning hidden" role="alert" id="existing-alert">
+                The hash of the document has already been submitted. It cannot be submitted again.
+                </div>
+                <div class="alert alert-primary hidden" role="alert" id="notfound-alert">
+                No document with this hash was found.
+                </div>
+                <div class="alert alert-danger hidden" role="alert" id="error-alert">
+                There was an error communicating with the contract.
+                </div>
+                <div class="alert alert-danger hidden" role="alert" id="metamask-alert">
+                To use this website you need to have MetaMask installed. Please visit <a target="_blank" href="https://metamask.io">MetaMask.io</a> for more information.
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
